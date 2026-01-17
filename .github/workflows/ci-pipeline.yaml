@@ -1,6 +1,7 @@
 name: CI-Pipeline
 on:
   push:
+    branches: [ master, feature/* ]
   pull_request:
 
 jobs:
@@ -12,8 +13,10 @@ jobs:
           uses: actions/setup-node@v4
           with:
            node-version: '20.x'
-        - run: npm install
-        - run: npm start
+        - name: Install Dependencies
+          run: npm install
+        - name: Run Tests
+          run: npm start
     
      
 
